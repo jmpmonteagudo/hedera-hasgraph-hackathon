@@ -14,6 +14,7 @@
     <script src="rpc.js"></script>
     <script src="keys.js"></script>
     <script src="appreciate.js"></script>
+    <script src="create.js"></script>
     <script src="artgraph.js"></script>
   </head>
   <body>
@@ -100,13 +101,70 @@
                 </p>
               </center>
             </div>
-            <div class="artgraph-tab-content">
+
+            <div class="artgraph-tab-content create">
               <center>
                 <h1 class="glyphicon glyphicon-plus-sign"></h1>
                 <h2>Create</h2>
-                <h3>&hellip;</h3>
+
+                <h3>
+                  <span>Title</span>
+                </h3>
+                <p></p>
+                <p>
+                  <input class="create-title" type="text">
+                </p>
+
+                <h3>
+                  <span>Description</span>
+                </h3>
+                <p></p>
+                <p>
+                  <input class="create-description" type="text">
+                </p>
+
+                <h3>
+                  <span>Category</span>
+                </h3>
+                <p></p>
+                <p>
+                  <input class="create-category" type="text">
+                </p>
+
+                <h3>
+                  <span>URL</span>
+                </h3>
+                <p></p>
+                <p>
+                  <input class="create-url" type="text">
+                </p>
+
+                <h3>
+                  <span>View Price (minimum)</span>
+                </h3>
+                <p></p>
+                <p>
+                  <input class="create-min_view_price" type="number">
+                </p>
+
+                <h3>
+                  <span>Remix Price (minimum)</span>
+                </h3>
+                <p></p>
+                <p>
+                  <input class="create-min_remix_price" type="number">
+                </p>
+
+                <p>
+                  <button class="create-submit">Create</button>
+                </p>
+                <p>
+                  This will create new art, and store it on the ArtGraph
+                  network.
+                </p>
               </center>
             </div>
+
             <div class="artgraph-tab-content">
               <center>
                 <h1 class="glyphicon glyphicon-transfer"></h1>
@@ -114,6 +172,7 @@
                 <h3>&hellip;</h3>
               </center>
             </div>
+
             <div class="artgraph-tab-content identity">
               <center>
                 <h1 class="glyphicon glyphicon-user"></h1>
@@ -151,6 +210,7 @@
                 </p>
               </center>
             </div>
+
             <div class="artgraph-tab-content about active">
               <center>
                 <h1 class="glyphicon glyphicon-info-sign"></h1>
