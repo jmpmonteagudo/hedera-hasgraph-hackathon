@@ -1,6 +1,7 @@
 $(document).ready(function() {
   registerTabs();
   setUpKeys();
+  setUpAppreciate();
 });
 
 function registerTabs() {
