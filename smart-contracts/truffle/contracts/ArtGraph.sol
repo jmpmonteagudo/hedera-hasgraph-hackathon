@@ -12,9 +12,16 @@ contract ArtGraph {
         uint remix_price_view;
     }
 
+    struct Offer {
+        uint artId;
+        uint amount;
+        bool executed;
+    }
+
     //mapping(uint => Art) owner;
     //mapping(uint => uint) public artsRate;
     Art[] arts;
+    Offer[] offers;
 
     function pieceView(uint _userId, uint _artId) payable public returns (bool) {
         // user sends micropayment to view the art piece
@@ -44,15 +51,29 @@ contract ArtGraph {
 
 
     function rate(uint _userId, uint _artId, uint _pay_amount, uint _rating) {
-
+        // WIP
     }
 
-    function pieceSendOffer(uint ) public {
+    function pieceSendOffer(uint _artId, uint _ownerId, uint _amount) public {
+        Art art = arts[_artId];
+        require(_ownerId == art.ownerId, "sender must be the art owner");
 
+        Offer memory offer;
+        offer.artId = _artId;
+        offer.amount = _amount;
+        offer.executed = false;
+
+        offers.push(offer);
     }
 
-    function pieceFillOffer(uint ) payable public {
 
+    function pieceFillOffer(uint _offerId, uint _userId, uint _amount) payable public {
+        Offer offer = offers[_offerId];
+        require(_amount >= offer.amount);
+
+        // WIP: send amount to owner
+        Art art = arts[offer.artId];
+        art.ownerId = _userId;
     }
 
 
