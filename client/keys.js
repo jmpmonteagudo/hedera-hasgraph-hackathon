@@ -1,9 +1,9 @@
 function setUpKeys() {
-  $('div.artgraph-tab-content.keys .keys-save-button').click(function(e) {
+  $('div.artgraph-tab-content.identity .keys-save-button').click(function(e) {
     e.preventDefault();
     saveKeys();
   });
-  $('div.artgraph-tab-content.keys .keys-clear-button').click(function(e) {
+  $('div.artgraph-tab-content.identity .keys-clear-button').click(function(e) {
     e.preventDefault();
     clearKeys();
   });
@@ -11,8 +11,8 @@ function setUpKeys() {
 
 function getInputElements() {
   return [
-    $('div.artgraph-tab-content.keys .keys-public-input'),
-    $('div.artgraph-tab-content.keys .keys-private-input'),
+    $('div.artgraph-tab-content.identity .keys-public-input'),
+    $('div.artgraph-tab-content.identity .keys-private-input'),
   ];
 }
 
