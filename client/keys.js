@@ -9,7 +9,7 @@ function setUpKeys() {
   });
 }
 
-function getInputElements() {
+function getKeysInputElements() {
   return [
     $('div.artgraph-tab-content.identity .keys-public-input'),
     $('div.artgraph-tab-content.identity .keys-private-input'),
@@ -21,7 +21,7 @@ function getKeys(errback) {
 }
 
 function saveKeys() {
-  const inputs = getInputElements();
+  const inputs = getKeysInputElements();
   const publicKey = inputs[0].val();
   const privateKey = inputs[1].val();
   console.log('saveKeys', publicKey, privateKey);
@@ -48,7 +48,7 @@ function clearKeys() {
       console.error('Error', error);
       return;
     }
-    const inputs = getInputElements();
+    const inputs = getKeysInputElements();
     inputs.forEach((input) => {
       input.val('');
     });

@@ -1,11 +1,19 @@
 <html>
   <head>
     <script src="3rd/jquery-1.11.1.js"></script>
+
     <link href="3rd/bootstrap-3.1.0.css" rel="stylesheet" id="bootstrap-css">
     <script src="3rd/bootstrap-3.1.0.js"></script>
+
     <script src="3rd/localforage-1.7.2.js"></script>
+
+    <script src="3rd/star-rating-4.0.5.js"></script>
+    <link href="3rd/star-rating-4.0.5.css" rel="stylesheet" id="bootstrap-css">
+
     <link href="artgraph.css" rel="stylesheet" id="artgraph-css">
+    <script src="rpc.js"></script>
     <script src="keys.js"></script>
+    <script src="appreciate.js"></script>
     <script src="artgraph.js"></script>
   </head>
   <body>
@@ -48,11 +56,48 @@
 
           <!-- tabs -->
           <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 artgraph-tab">
-            <div class="artgraph-tab-content">
+            <div class="artgraph-tab-content appreciate">
               <center>
                 <h1 class="glyphicon glyphicon-eye-open"></h1>
                 <h2>Appreciate</h2>
-                <h3>&hellip;</h3>
+
+                <h3>
+                  <span class="glyphicon glyphicon-qrcode"></span>
+                  <span>Scan QR code</span>
+                </h3>
+                <p>
+                  <input class="appreciate-qrcode" type="text">
+                </p>
+
+                <h3>
+                  <span class="glyphicon glyphicon-thumbs-up"></span>
+                  <span>Tip</span>
+                </h3>
+                <p>
+                  Enter a tip to pay the owner more than the minimum requested.
+                </p>
+                <p>
+                  <input class="appreciate-tip" type="number">
+                </p>
+
+                <h3>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span>Rate</span>
+                </h3>
+                <p>
+                  Rate the art to show that you like it.
+                </p>
+                <p>
+                  <input class="appreciate-rating" type="text" data-size="md" >
+                </p>
+
+                <p>
+                  <button class="appreciate-submit">Appreciate</button>
+                </p>
+                <p>
+                  This will pay the artist the minimum amount plus any tip you
+                  have entered, and also submit a rating if you have set one.
+                </p>
               </center>
             </div>
             <div class="artgraph-tab-content">
