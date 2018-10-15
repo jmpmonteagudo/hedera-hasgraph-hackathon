@@ -14,13 +14,14 @@ contract('ArtGraph', function (accounts) {
 
     let _ownerId = 1; // Leonardo
     let _title = 'Mona Lisa'
-    let _description = 'Best picture ever'
+    let _description = 'Best painting ever'
     let _category = 'Paiting'
     let _url = 'https://some-url.com'
     let _min_price_view = 10;
     let _remix_price_view = 100;
 
-    let _userId = 1;
+    let _userId = 2;
+    let _offerAmount = 100;
 
     describe('basic tests', function () {
         before(async function () {
@@ -38,5 +39,14 @@ contract('ArtGraph', function (accounts) {
             await contract.pieceView(_userId, 0, { from: accounts[0], value: _remix_price_view });
         });
 
+        it('send offer', async function () {
+            await assertRevert(contract.pieceSendOffer(0, _ownerId + 1, _offerAmount));
+            await contract.pieceSendOffer(0, _ownerId, _offerAmount);
+        });
+
+        it('fill offer', async function () {
+            await assertRevert(contract.pieceFillOffer(0, _userId, _offerAmount - 1));
+            await contract.pieceFillOffer(0, _userId, _offerAmount);
+        });
     });
 });
