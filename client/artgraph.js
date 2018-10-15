@@ -2,6 +2,7 @@ $(document).ready(function() {
   registerTabs();
   setUpKeys();
   setUpAppreciate();
+  setUpCreate();
 });
 
 function registerTabs() {
