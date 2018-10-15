@@ -3,60 +3,99 @@
     <script src="3rd/jquery-1.11.1.js"></script>
     <link href="3rd/bootstrap-3.1.0.css" rel="stylesheet" id="bootstrap-css">
     <script src="3rd/bootstrap-3.1.0.js"></script>
-    <link href="fairwork.css" rel="stylesheet" id="fairwork-css">
-    <script src="fairwork.js"></script>
+    <script src="3rd/localforage-1.7.2.js"></script>
+    <link href="artgraph.css" rel="stylesheet" id="artgraph-css">
+    <script src="keys.js"></script>
+    <script src="artgraph.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="jumbotron">
-        <h1><span class="glyphicon glyphicon-globe"></span>FairWork</h1>
+        <h1>
+          <span class="glyphicon glyphicon-globe"></span>
+          <span>ArtGraph</span>
+        </h1>
       </div>
       <div class="row">
-        <div class="col-lg-5 col-md-5 col-sm-8 col-xs-9 fairwork-tab-container">
+        <div class="col-lg-5 col-md-5 col-sm-8 col-xs-9 artgraph-tab-container">
 
           <!-- menu  -->
-          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 fairwork-tab-menu">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 artgraph-tab-menu">
             <div class="list-group">
               <a href="#" class="list-group-item active text-center">
-                <h4 class="glyphicon glyphicon-user"></h4><br/>Keys
+                <h4 class="glyphicon glyphicon-user"></h4>
+                <br/>Keys
               </a>
               <a href="#" class="list-group-item text-center">
-                <h4 class="glyphicon glyphicon-usd"></h4><br/>Balance
+                <h4 class="glyphicon glyphicon-usd"></h4>
+                <br/>Balance
               </a>
               <a href="#" class="list-group-item text-center">
-                <h4 class="glyphicon glyphicon-list-alt"></h4><br/>Contracts
+                <h4 class="glyphicon glyphicon-list-alt"></h4>
+                <br/>Contracts
               </a>
               <a href="#" class="list-group-item text-center">
-                <h4 class="glyphicon glyphicon-info-sign"></h4><br/>About
+                <h4 class="glyphicon glyphicon-info-sign"></h4>
+                <br/>About
               </a>
             </div>
           </div>
           <!-- end menu -->
 
           <!-- tabs -->
-          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 fairwork-tab">
-            <div class="fairwork-tab-content active">
+          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 artgraph-tab">
+            <div class="artgraph-tab-content active keys">
               <center>
                 <h1 class="glyphicon glyphicon-user"></h1>
                 <h2>Keys</h2>
-                <h3>&hellip;</h3>
+                <h3>Enter your keys</h3>
+                <form>
+                  <p>Public key</p>
+                  <p>
+                    <input type="password" class="keys-public-input">
+                  </p>
+                  <p>Private key</p>
+                  <p>
+                    <input type="password" class="keys-private-input">
+                  </p>
+                  <p>
+                    <button class="keys-save-button">Save</button>
+                    <button class="keys-clear-button">Clear</button>
+                  </p>
+                </form>
+                <hr />
+                <h3>
+                  <span class="glyphicon glyphicon-warning-sign"></span>
+                  <span>Important information:</span>
+                </h3>
+                <p>
+                  Your keys will be used to interact with ArtGraph's smart
+                  contracts. These keys will be used to identify you and your
+                  activities within the network.
+                </p>
+                <p>
+                  Your public key is your identity, and may be shared with
+                  anyone. Think of this as your user name. Your private key,
+                  on the other hand is a secret, and may not be shared with
+                  anyone. Think of this as your password.
+                </p>
               </center>
             </div>
-            <div class="fairwork-tab-content">
+            <div class="artgraph-tab-content">
               <center>
                 <h1 class="glyphicon glyphicon-usd"></h1>
                 <h2>Balance</h2>
                 <h3>&hellip;</h3>
               </center>
             </div>
-            <div class="fairwork-tab-content">
+            <div class="artgraph-tab-content">
               <center>
                 <h1 class="glyphicon glyphicon-list-alt"></h1>
                 <h2>Contracts</h2>
                 <h3>&hellip;</h3>
               </center>
             </div>
-            <div class="fairwork-tab-content">
+            <div class="artgraph-tab-content">
               <center>
                 <h1 class="glyphicon glyphicon-info-sign"></h1>
                 <h2>About</h2>

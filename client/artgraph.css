@@ -1,4 +1,4 @@
-div.fairwork-tab-container {
+div.artgraph-tab-container {
   z-index: 10;
   background-color: #ffffff;
   padding: 0 !important;
@@ -15,44 +15,44 @@ div.fairwork-tab-container {
   filter: alpha(opacity=97);
 }
 
-div.fairwork-tab-menu {
+div.artgraph-tab-menu {
   padding-right: 0;
   padding-left: 0;
   padding-bottom: 0;
 }
 
-div.fairwork-tab-menu div.list-group {
+div.artgraph-tab-menu div.list-group {
   margin-bottom: 0;
 }
 
-div.fairwork-tab-menu div.list-group>a {
+div.artgraph-tab-menu div.list-group>a {
   margin-bottom: 0;
 }
 
-div.fairwork-tab-menu div.list-group>a .glyphicon,
-div.fairwork-tab-menu div.list-group>a .fa {
+div.artgraph-tab-menu div.list-group>a .glyphicon,
+div.artgraph-tab-menu div.list-group>a .fa {
   color: rgb(10, 2, 124);
 }
 
-div.fairwork-tab-menu div.list-group>a:first-child {
+div.artgraph-tab-menu div.list-group>a:first-child {
   border-top-right-radius: 0;
   -moz-border-top-right-radius: 0;
 }
 
-div.fairwork-tab-menu div.list-group>a:last-child {
+div.artgraph-tab-menu div.list-group>a:last-child {
   border-bottom-right-radius: 0;
   -moz-border-bottom-right-radius: 0;
 }
 
-div.fairwork-tab-menu div.list-group>a.active,
-div.fairwork-tab-menu div.list-group>a.active .glyphicon,
-div.fairwork-tab-menu div.list-group>a.active .fa {
+div.artgraph-tab-menu div.list-group>a.active,
+div.artgraph-tab-menu div.list-group>a.active .glyphicon,
+div.artgraph-tab-menu div.list-group>a.active .fa {
   background-color: rgb(10, 2, 124);
   background-image: rgb(10, 2, 124);
   color: #ffffff;
 }
 
-div.fairwork-tab-menu div.list-group>a.active:after {
+div.artgraph-tab-menu div.list-group>a.active:after {
   content: '';
   position: absolute;
   left: 100%;
@@ -64,7 +64,7 @@ div.fairwork-tab-menu div.list-group>a.active:after {
   border-left: 10px solid rgb(10, 2, 124);
 }
 
-div.fairwork-tab-content {
+div.artgraph-tab-content {
   display: none;
   background-color: #ffffff;
   border: none;
@@ -72,22 +72,22 @@ div.fairwork-tab-content {
   padding-top: 10px;
 }
 
-div.fairwork-tab-content.active {
+div.artgraph-tab-content.active {
   display: block;
 }
 
-div.fairwork-tab-content h1 {
+div.artgraph-tab-content h1 {
   font-size: 9em;
   margin-top: 0;
   color:rgb(72, 68, 136);
 }
 
-div.fairwork-tab-content h2 {
+div.artgraph-tab-content h2 {
   margin-top: 0;
   color:rgb(10, 2, 124);
 }
 
-div.fairwork-tab-content h3 {
+div.artgraph-tab-content h3 {
   margin-top: 0;
   color:rgb(10, 2, 124);
 }
