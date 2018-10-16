@@ -1,3 +1,5 @@
+let appreciateScanner;
+
 function setUpAppreciate() {
   $("div.artgraph-tab-content.appreciate .appreciate-rating").rating();
 
@@ -11,6 +13,17 @@ function setUpAppreciate() {
     const qrcode = $(this).val();
     appreciateDisplayQrcode(qrcode);
   });
+
+  $("div.artgraph-tab-content.appreciate .appreciate-qrcode-scan").click(function(e) {
+    e.preventDefault();
+    appreciateQrcodeScanStart();
+  });
+
+  appreciateScanner= new Instascan.Scanner({
+    video: document.querySelector('div.artgraph-tab-content.appreciate .appreciate-qrcode-preview'),
+    backgroundScan: false,
+    continuous: true,
+  });
 }
 
 function getAppreciateInputElements() {
@@ -19,6 +32,30 @@ function getAppreciateInputElements() {
     $('div.artgraph-tab-content.appreciate .appreciate-tip'),
     $('div.artgraph-tab-content.appreciate .appreciate-rating'),
   ];
+}
+
+function appreciateQrcodeScanStart() {
+  $('div.artgraph-tab-content.appreciate .appreciate-qrcode-preview')
+    .addClass('show');
+  Instascan.Camera.getCameras().then(function (cameras) {
+    if (cameras.length > 0) {
+      appreciateScanner.start(cameras[0]);
+      appreciateScanner.addListener('scan', appreciateQrcodeScanFinish);
+    } else {
+      console.error('No cameras found.');
+    }
+  }).catch(function (e) {
+    console.error(e);
+  });
+}
+
+function appreciateQrcodeScanFinish(qrcode) {
+  $('div.artgraph-tab-content.appreciate .appreciate-qrcode').val(qrcode);
+  appreciateDisplayQrcode(qrcode);
+  appreciateScanner.stop().then(function() {
+    $('div.artgraph-tab-content.appreciate .appreciate-qrcode-preview')
+      .removeClass('show');
+  });
 }
 
 function appreciateDisplayQrcode(qrcode) {

@@ -71,6 +71,8 @@
                   <span>Scan QR code</span>
                 </h3>
                 <p>
+                  <video class="appreciate-qrcode-preview"></video>
+                  <button class="appreciate-qrcode-scan">Scan</button>
                   <input class="appreciate-qrcode" type="text">
                   <div class="appreciate-qrcode-display"></div>
                 </p>
@@ -180,6 +182,8 @@
                 </h3>
                 <p></p>
                 <p>
+                  <video class="trade-qrcode-preview"></video>
+                  <button class="trade-qrcode-scan">Scan</button>
                   <input class="trade-qrcode" type="text">
                   <div class="trade-qrcode-display"></div>
                 </p>
@@ -325,4 +329,7 @@
     </div>
     <img src="artgraph.png" class="artgraph-text-image" />
   </body>
+
+  <!-- we load the following scripts last due to its large size -->
+  <script src="3rd/instascan-1.0.0.min.js"></script>
 </html>

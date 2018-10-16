@@ -99,3 +99,23 @@ div.artgraph-tab-content h3 {
 img.artgraph-text-image {
   display: none;
 }
+
+video.appreciate-qrcode-preview {
+  display: none;
+}
+
+video.appreciate-qrcode-preview.show {
+  display: block;
+  width: 320px;
+  height: 320px;
+}
+
+video.trade-qrcode-preview {
+  display: none;
+}
+
+video.trade-qrcode-preview.show {
+  display: block;
+  width: 320px;
+  height: 320px;
+}
