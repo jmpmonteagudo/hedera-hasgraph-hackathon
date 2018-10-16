@@ -1,3 +1,7 @@
+div.header {
+  color: rgb(10, 2, 124);
+}
+
 div.artgraph-tab-container {
   z-index: 10;
   background-color: #ffffff;
@@ -90,4 +94,8 @@ div.artgraph-tab-content h2 {
 div.artgraph-tab-content h3 {
   margin-top: 0;
   color:rgb(10, 2, 124);
+}
+
+img.artgraph-text-image {
+  display: none;
 }

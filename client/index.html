@@ -11,6 +11,8 @@
     <script src="3rd/star-rating-4.0.5.js"></script>
     <link href="3rd/star-rating-4.0.5.css" rel="stylesheet" id="bootstrap-css">
 
+    <script src="3rd/kjua-1.0.2.js"></script>
+
     <link href="artgraph.css" rel="stylesheet" id="artgraph-css">
     <script src="rpc.js"></script>
     <script src="keys.js"></script>
@@ -21,7 +23,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="jumbotron">
+      <div class="jumbotron header">
         <h1>
           <span class="glyphicon glyphicon-globe"></span>
           <span>ArtGraph</span>
@@ -70,6 +72,7 @@
                 </h3>
                 <p>
                   <input class="appreciate-qrcode" type="text">
+                  <div class="appreciate-qrcode-display"></div>
                 </p>
 
                 <h3>
@@ -178,6 +181,7 @@
                 <p></p>
                 <p>
                   <input class="trade-qrcode" type="text">
+                  <div class="trade-qrcode-display"></div>
                 </p>
 
                 <h3>
@@ -319,5 +323,6 @@
         </div>
       </div>
     </div>
+    <img src="artgraph.png" class="artgraph-text-image" />
   </body>
 </html>

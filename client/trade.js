@@ -7,9 +7,16 @@ function setUpTrade() {
     e.preventDefault();
     submitTrade();
   });
+
   $('div.artgraph-tab-content.trade .trade-refresh').click(function(e) {
     e.preventDefault();
     displayTrades();
+  });
+
+  $('div.artgraph-tab-content.trade .trade-qrcode').change(function(e) {
+    e.preventDefault();
+    const qrcode = $(this).val();
+    tradeDisplayQrcode(qrcode);
   });
 
   displayTrades();
@@ -20,6 +27,19 @@ function getTradeInputElements() {
     qrcode: $('div.artgraph-tab-content.trade .trade-qrcode'),
     offer_amount: $('div.artgraph-tab-content.trade .trade-offer_amount'),
   };
+}
+
+function tradeDisplayQrcode(qrcode) {
+  const img = kjua({
+    text: qrcode,
+    size: 240,
+    mode: 'image',
+    mSize: 15,
+    image: document.querySelector('img.artgraph-text-image'),
+  });
+  const container = $('div.artgraph-tab-content.trade .trade-qrcode-display');
+  container.html('');
+  container.append(img);
 }
 
 function submitTrade() {
