@@ -1,6 +1,7 @@
 <html>
   <head>
     <script src="3rd/jquery-1.11.1.js"></script>
+    <script src="3rd/jsrender-0.9.91.js"></script>
 
     <link href="3rd/bootstrap-3.1.0.css" rel="stylesheet" id="bootstrap-css">
     <script src="3rd/bootstrap-3.1.0.js"></script>
@@ -27,7 +28,7 @@
         </h1>
       </div>
       <div class="row">
-        <div class="col-lg-5 col-md-5 col-sm-8 col-xs-9 artgraph-tab-container">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 artgraph-tab-container">
 
           <!-- menu  -->
           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 artgraph-tab-menu">
@@ -192,6 +193,60 @@
                 </p>
                 <p>
                   This will create a new offer to buy the selected art.
+                </p>
+
+                <hr />
+
+                <script id="trade-display-template" type="text/x-jsrender">
+                  <h3>Buy offers</h3>
+                  <p>You have {{:buyOffers.length}} offers to buy your art.</p>
+                  <ul>
+                    {{for buyOffers}}
+                    <li>
+                      <p>
+                        {{if status === 'pending'}}
+                          Buying
+                        {{else status === 'rejected'}}
+                          Rejected request to buy
+                        {{else status === 'completed'}}
+                          Bought
+                        {{/if}}
+                        "{{:title}}" from {{:name}} for H{{:price}}
+                      </p>
+                      {{if status === 'pending'}}
+                        <button>Accept</button>
+                        <button>Reject</button>
+                      {{/if}}
+                    </li>
+                    {{/for}}
+                  </ul>
+                  <hr />
+                  <h3>Sell offers</h3>
+                  <p>You have {{:sellOffers.length}} offers to sell your art.</p>
+                  <ul>
+                    {{for sellOffers}}
+                    <li>
+                      <p>
+                        {{if status === 'pending'}}
+                          Selling
+                        {{else status === 'rejected'}}
+                          Rejected request to sell
+                        {{else status === 'completed'}}
+                          Sold
+                        {{/if}}
+                        "{{:title}}" to {{:name}} for H{{:price}}
+                      </p>
+                      {{if status === 'pending'}}
+                        <button>Accept</button>
+                        <button>Reject</button>
+                      {{/if}}
+                    </li>
+                    {{/for}}
+                  </ul>
+                </script>
+                <div class="trade-display"></div>
+                <p>
+                  <button class="trade-refresh">Refresh trades</button>
                 </p>
               </center>
             </div>
