@@ -15,6 +15,7 @@
     <script src="keys.js"></script>
     <script src="appreciate.js"></script>
     <script src="create.js"></script>
+    <script src="trade.js"></script>
     <script src="artgraph.js"></script>
   </head>
   <body>
@@ -165,11 +166,33 @@
               </center>
             </div>
 
-            <div class="artgraph-tab-content">
+            <div class="artgraph-tab-content trade">
               <center>
                 <h1 class="glyphicon glyphicon-transfer"></h1>
                 <h2>Trade</h2>
-                <h3>&hellip;</h3>
+
+                <h3>
+                  <span>Scan QR Code</span>
+                </h3>
+                <p></p>
+                <p>
+                  <input class="trade-qrcode" type="text">
+                </p>
+
+                <h3>
+                  <span>Offer Amount</span>
+                </h3>
+                <p></p>
+                <p>
+                  <input class="trade-offer_amount" type="number">
+                </p>
+
+                <p>
+                  <button class="trade-submit">Create</button>
+                </p>
+                <p>
+                  This will create a new offer to buy the selected art.
+                </p>
               </center>
             </div>
 

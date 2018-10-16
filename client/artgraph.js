@@ -3,6 +3,7 @@ $(document).ready(function() {
   setUpKeys();
   setUpAppreciate();
   setUpCreate();
+  setUpTrade();
 });
 
 function registerTabs() {
