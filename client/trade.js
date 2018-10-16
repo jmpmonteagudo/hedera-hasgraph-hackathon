@@ -1,4 +1,5 @@
 let tradesDisplayTemplate;
+let tradeScanner;
 
 function setUpTrade() {
   tradesDisplayTemplate = $.templates("#trade-display-template");
@@ -19,6 +20,17 @@ function setUpTrade() {
     tradeDisplayQrcode(qrcode);
   });
 
+  $("div.artgraph-tab-content.trade .trade-qrcode-scan").click(function(e) {
+    e.preventDefault();
+    tradeQrcodeScanStart();
+  });
+
+  tradeScanner= new Instascan.Scanner({
+    video: document.querySelector('div.artgraph-tab-content.trade .trade-qrcode-preview'),
+    backgroundScan: false,
+    continuous: true,
+  });
+
   displayTrades();
 }
 
@@ -27,6 +39,30 @@ function getTradeInputElements() {
     qrcode: $('div.artgraph-tab-content.trade .trade-qrcode'),
     offer_amount: $('div.artgraph-tab-content.trade .trade-offer_amount'),
   };
+}
+
+function tradeQrcodeScanStart() {
+  $('div.artgraph-tab-content.trade .trade-qrcode-preview')
+    .addClass('show');
+  Instascan.Camera.getCameras().then(function (cameras) {
+    if (cameras.length > 0) {
+      tradeScanner.start(cameras[0]);
+      tradeScanner.addListener('scan', tradeQrcodeScanFinish);
+    } else {
+      console.error('No cameras found.');
+    }
+  }).catch(function (e) {
+    console.error(e);
+  });
+}
+
+function tradeQrcodeScanFinish(qrcode) {
+  $('div.artgraph-tab-content.trade .trade-qrcode').val(qrcode);
+  tradeDisplayQrcode(qrcode);
+  tradeScanner.stop().then(function() {
+    $('div.artgraph-tab-content.trade .trade-qrcode-preview')
+      .removeClass('show');
+  });
 }
 
 function tradeDisplayQrcode(qrcode) {
