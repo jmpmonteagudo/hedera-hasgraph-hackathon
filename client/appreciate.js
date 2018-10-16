@@ -5,6 +5,12 @@ function setUpAppreciate() {
     e.preventDefault();
     submitAppreciate();
   });
+
+  $('div.artgraph-tab-content.appreciate .appreciate-qrcode').change(function(e) {
+    e.preventDefault();
+    const qrcode = $(this).val();
+    appreciateDisplayQrcode(qrcode);
+  });
 }
 
 function getAppreciateInputElements() {
@@ -13,6 +19,19 @@ function getAppreciateInputElements() {
     $('div.artgraph-tab-content.appreciate .appreciate-tip'),
     $('div.artgraph-tab-content.appreciate .appreciate-rating'),
   ];
+}
+
+function appreciateDisplayQrcode(qrcode) {
+  const img = kjua({
+    text: qrcode,
+    size: 240,
+    mode: 'image',
+    mSize: 15,
+    image: document.querySelector('img.artgraph-text-image'),
+  });
+  const container = $('div.artgraph-tab-content.appreciate .appreciate-qrcode-display');
+  container.html('');
+  container.append(img);
 }
 
 function submitAppreciate() {
