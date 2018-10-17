@@ -1,60 +1,64 @@
-const express = require('express')
-const app = express()
-const port = 3000
-var bodyParser = require('body-parser');
+const path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-  extended: true
-})); 
+const app = express();
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.use(bodyParser.json());
+
+app.use(
+  '/client',
+  express.static(path.join(__dirname, '../client')),
+);
 
 app.post('/rpc', function(req, res) {
-    
-    console.log(`req.param = ${JSON.stringify(req.param)}`);
-    console.log(`req.body = ${JSON.stringify(req.body)}`);
+  const { body } = req;
+  console.log('request body', body);
 
-    //res.send('user ' + req.params.id);
+  const { functionName, inputs } = body;
 
-    if (req.body.funcName == 'pieceView') {
-        let userId = req.body.params[0];
-        let artId = req.body.params[1];
+  if (functionName == 'pieceView') {
+    let userId = inputs[0];
+    let artId = inputs[1];
 
-        // wip: call smart contract's pieceView method and return the data
-        // contract.pieceView(userId, artId);
-    }
+    // wip: call smart contract's pieceView method and return the data
+    // contract.pieceView(userId, artId);
+  }
 
-    if (req.body.funcName == 'pieceCreate') {
-        let ownerId = req.body.params[0];
-        let title = req.body.params[1];
-        let description = req.body.params[2];
-        let category = req.body.params[3];
-        let url = req.body.params[4];
-        let min_price_view = req.body.params[5];
-        let remix_price_view = req.body.params[6];
+  if (functionName == 'pieceCreate') {
+    let ownerId = inputs[0];
+    let title = inputs[1];
+    let description = inputs[2];
+    let category = inputs[3];
+    let url = inputs[4];
+    let min_price_view = inputs[5];
+    let remix_price_view = inputs[6];
 
-        // wip: call smart contract's pieceCreate method
-        // contract.pieceCreate(uint _ownerId, string _title, string _description, string _category, string _url,
-        //    uint _min_price_view, uint _remix_price_view)
-    }
+    // wip: call smart contract's pieceCreate method
+    // contract.pieceCreate(uint _ownerId, string _title, string _description, string _category, string _url,
+    //    uint _min_price_view, uint _remix_price_view)
+  }
 
-    if (req.body.funcName == 'rate') {
-        // wip
-    }
+  if (functionName == 'rate') {
+    // wip
+  }
 
-    if (req.body.funcName == 'pieceSendOffer') {
-        // wip: call smart contract's pieceSendOffer method and return the data
-        // contract.pieceSendOffer();
-    }
+  if (functionName == 'pieceSendOffer') {
+    // wip: call smart contract's pieceSendOffer method and return the data
+    // contract.pieceSendOffer();
+  }
 
-    if (req.body.funcName == 'pieceFillOffer') {
-        // wip: call smart contract's pieceFillOffer method and return the data
-        // contract.pieceFillOffer();
-    }
+  if (functionName == 'pieceFillOffer') {
+    // wip: call smart contract's pieceFillOffer method and return the data
+    // contract.pieceFillOffer();
+  }
 
-    res.json(req.body);
+  res.json(req.body);
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+const port = 51111;
+app.listen(
+  port,
+  () => console.log(`Example app listening on port ${port}!`),
+);
 
