@@ -8,8 +8,8 @@ function stub(inputs, errback) {
     description: 'Flowers in the spring',
     category: 'painting',
     url: 'http://example.com/spring-blossoms',
-    min_price_view: 5,
-    remix_price_view: 25,
+    min_view_price: 5,
+    min_remix_price: 25,
     qrcode,
   });
 }

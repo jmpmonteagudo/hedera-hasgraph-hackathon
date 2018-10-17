@@ -1,6 +1,9 @@
+let appreciateDisplayTemplate;
 let appreciateScanner;
 
 function setUpAppreciate() {
+  appreciateDisplayTemplate = $.templates("#appreciate-display-template");
+
   $("div.artgraph-tab-content.appreciate .appreciate-rating").rating();
 
   $("div.artgraph-tab-content.appreciate .appreciate-submit").click(function(e) {
@@ -59,6 +62,16 @@ function appreciateQrcodeScanFinish(qrcode) {
 }
 
 function appreciateDisplayQrcode(qrcode) {
+  // make RPC call to retrieve art data
+  sendRpc('getArt', { qrcode }, function (err, result) {
+    if (err) {
+      console.error('error', err);
+      return;
+    }
+    renderAppreciate(result);
+  });
+
+  // update UI
   const img = kjua({
     text: qrcode,
     size: 240,
@@ -71,6 +84,11 @@ function appreciateDisplayQrcode(qrcode) {
   container.append(img);
 }
 
+function renderAppreciate(art) {
+  const html = appreciateDisplayTemplate.render(art);
+  $('div.artgraph-tab-content.appreciate .appreciate-display').html(html);
+}
+
 function submitAppreciate() {
   const inputs = getAppreciateInputElements();
   const qrCode = inputs[0].val();
@@ -81,15 +99,15 @@ function submitAppreciate() {
   }
   if (ratingString === '') {
     // invoke view only
-    const viewInputs = [ qrCode, tip ];
-    sendRpc("view", viewInputs, console.log);
+    const viewInputs = { qrCode, tip };
+    sendRpc('view', viewInputs, console.log);
   } else {
     // invoke rate instead of view
     const rating = +ratingString;
     if (!isNaN(rating) && (rating < 0 || rating > 5)) {
       throw new Error('Rating must be a number between 0 and 5');
     }
-    const rateInputs = [ qrCode, tip, rating ];
-    sendRpc("rate", rateInputs, console.log);
+    const rateInputs = { qrCode, tip, rating };
+    sendRpc('rate', rateInputs, console.log);
   }
 }

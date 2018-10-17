@@ -77,6 +77,19 @@
                   <div class="appreciate-qrcode-display"></div>
                 </p>
 
+                <hr />
+
+                <script id="appreciate-display-template" type="text/x-jsrender">
+                  <a target="_blank" href="{{:url}}">
+                    <h3>{{:title}}</h3>
+                    <p>{{:description}}</p>
+                  </a>
+                  <p>View price: H{{:min_view_price}}</p>
+                  <p>Remix price: H{{:min_remix_price}}</p>
+                  <hr />
+                </script>
+                <div class="appreciate-display"></div>
+
                 <h3>
                   <span class="glyphicon glyphicon-thumbs-up"></span>
                   <span>Tip</span>
