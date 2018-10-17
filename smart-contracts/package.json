@@ -3,7 +3,6 @@
   "main": "truffle.js",
   "scripts": {
     "test": "set -a && . scripts/test.env && set +a && scripts/build.sh && scripts/test.sh",
-    "coverage": "set -a && . scripts/test.env && set +a && scripts/coverage.sh",
     "build": "set -a && . scripts/test.env && set +a && scripts/build.sh"
   },
   "dependencies": {
