@@ -20,6 +20,7 @@ contract ArtGraph {
 
     struct Offer {
         uint artId;
+        address originalOwner;
         uint amount;
         bool executed;
         uint fundsReceived;
@@ -30,7 +31,6 @@ contract ArtGraph {
 
     Art[] arts;
     Offer[] offers;
-
 
     // @dev user sends micropayments to view the art piece through this method
     function pieceView(uint _artId) payable public returns (bool) {
@@ -66,6 +66,7 @@ contract ArtGraph {
 
         Offer memory offer;
         offer.artId = _artId;
+        offer.originalOwner = art.owner;
         offer.amount = _amount;
         offer.executed = false;
         emit PieceSendOffer(offers.length);
@@ -81,6 +82,15 @@ contract ArtGraph {
 
         Art art = arts[offer.artId];
         art.owner = msg.sender;
+    }
+
+    function withdrawOfferfunds(uint _offerId) public {
+        Offer offer = offers[_offerId];
+        require(msg.sender == offer.originalOwner, "only art original owner can withdraw the offer funds");
+        require(offer.executed == false, "order funds were already withdrawn");
+
+        offer.executed = true;
+        msg.sender.transfer(offer.fundsReceived);
     }
 
 
