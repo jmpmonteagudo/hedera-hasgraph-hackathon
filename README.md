@@ -1,28 +1,26 @@
 # ArtGraph
 
-**ArtGraph** is proof-of-concept of a decentralized platform to reward artists for the pieces of art. This is a project done at the [Hedera-Hashgraph global hackathon][hedera18hackathon].
+**ArtGraph** is proof-of-concept of a decentralized platform to reward artists for pieces of art
+that they create. One can tip, rate, remix, and trade art on this platform.
 
+This project was done in the [Hedera-Hashgraph global hackathon][hedera18hackathon].
 
-## Description
+[Slides used in our demo](https://docs.google.com/presentation/d/1Z1Unu5-9l-Xtf4247MKV85LB8hQFIhrAi55jPPpua5A/edit?usp=sharing)
 
-Slides are available here:
+### Client
 
-https://docs.google.com/presentation/d/1Z1Unu5-9l-Xtf4247MKV85LB8hQFIhrAi55jPPpua5A/edit?usp=sharing
-
-
-### Back end
-
-To run the back end:
+To run the client:
 
 ```bash
-cd server
-node index.js
+node server/run.js
 ```
 
-Then open `client/index.html` with a browser.
+Then open [localhost:51111/client/](http://localhost:51111/client/) in a browser.
 
+Note that QR code scanning functionality will require webcam access, and a browser that supports
+WebRTC standards. If these are unavailable on your device, you type the QR code in manually.
 
-### Smart contracts
+### Smart Contracts
 
 To build and run the Truffle tests:
 
@@ -31,7 +29,6 @@ cd smart-contracts
 npm run build
 npm test
 ```
-
 
 ## Authors
 
